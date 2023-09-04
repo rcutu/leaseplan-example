@@ -7,19 +7,19 @@ Feature: Search for the product
   Scenario Outline: User calls the endpoint for all the available products and receives the expected response
     Given user makes a GET request for the product '<PRODUCT>'
     Then the response status code is 200
-    And the response body title contains '<PRODUCT>'
+    And the response body contains <NUMBER_OF_PRODUCTS>
 
     Examples:
-      | PRODUCT |
-      | orange  |
-      | apple   |
-      | pasta   |
-      | cola    |
+      | PRODUCT | NUMBER_OF_PRODUCTS |
+      | orange  | 0               |
+      | apple   | 9               |
+      | pasta   | 20              |
+      | cola    | 20              |
 
   Scenario Outline: User calls the endpoint for an unavailable product
     Given user makes a GET request for the product '<UNAVAILABLE_PRODUCT>'
-    Then the response status code is 400
-    And the response body contains an error
+    Then the response status code is 404
+    And the response body for '<UNAVAILABLE_PRODUCT>' contains an error
 
     Examples:
       | UNAVAILABLE_PRODUCT |
