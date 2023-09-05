@@ -1,9 +1,11 @@
+@smoke
 Feature: Search for the product
 
 ### Please use endpoint GET https://waarkoop-server.herokuapp.com/api/v1/search/demo/{product} for getting the products.
 ### Available products: "orange", "apple", "pasta", "cola"
 ### Prepare Positive and negative scenarios
 
+  @parallel
   Scenario Outline: User calls the endpoint for all the available products and receives the expected response
     Given user makes a GET request for the product '<PRODUCT>'
     Then the response status code is 200
@@ -11,10 +13,10 @@ Feature: Search for the product
 
     Examples:
       | PRODUCT | NUMBER_OF_PRODUCTS |
-      | orange  | 0               |
-      | apple   | 9               |
-      | pasta   | 20              |
-      | cola    | 20              |
+      | orange  | 0                  |
+      | apple   | 9                  |
+      | pasta   | 20                 |
+      | cola    | 20                 |
 
   Scenario Outline: User calls the endpoint for an unavailable product
     Given user makes a GET request for the product '<UNAVAILABLE_PRODUCT>'

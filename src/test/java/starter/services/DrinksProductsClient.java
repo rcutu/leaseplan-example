@@ -1,13 +1,14 @@
 package starter.services;
 
+import io.restassured.response.Response;
 import net.serenitybdd.rest.SerenityRest;
 
 public class DrinksProductsClient {
 
-    private String demoUrl = "https://waarkoop-server.herokuapp.com/api/v1/search/demo/";
+    private final String demoUrl = "https://waarkoop-server.herokuapp.com/api/v1/search/demo/";
 
 
-    public void getProducts() {
-        SerenityRest.given().get(demoUrl);
+    public Response getProducts(String endpoint) {
+        return SerenityRest.given().get(demoUrl + endpoint);
     }
 }

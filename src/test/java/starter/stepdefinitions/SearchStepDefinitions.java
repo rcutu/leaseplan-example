@@ -18,20 +18,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SearchStepDefinitions {
 
     @Steps
-    public CarsAPI carsAPI;
-    @Steps
-    public DrinksProductsClient drinksProductsService;
+    public DrinksProductsClient drinksProductsClient;
     @Steps
     public ScenarioContext scenarioContext;
 
 
     @When("user makes a GET request for the product {string}")
     public void userMakesAGetRequestForTheProduct(String product) {
-        String endpoint = String.format("https://waarkoop-server.herokuapp.com/api/v1/search/demo/%s", product);
-        Response response = SerenityRest
-                .given()
-                .get(endpoint);
-
+        Response response = drinksProductsClient.getProducts(product);
 
 //        initially I was thinking that I am going to need the context for response (never used serenity before)
         scenarioContext.save(DataKeys.RESPONSE, response);
