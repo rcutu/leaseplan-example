@@ -5,7 +5,6 @@ Feature: Search for the product
 ### Available products: "orange", "apple", "pasta", "cola"
 ### Prepare Positive and negative scenarios
 
-  @parallel
   Scenario Outline: User calls the endpoint for all the available products and receives the expected response
     Given user makes a GET request for the product '<PRODUCT>'
     Then the response status code is 200
