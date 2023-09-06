@@ -9,4 +9,9 @@ refactored:
 How to run the tests
 - locally : simply run the TestRunner class -> the report should be generated in \target\site\serenity
 - git actions: run the Maven Build workflow -> after it runs successfully an artifact should be generated that contains
-the report
+the main report - index.html
+- 
+
+- PS: I tried multiple ways to generate report independently but with no luck, sending the project like this being cautious of time
+
+thanks for attention!
