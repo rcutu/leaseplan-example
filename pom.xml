@@ -142,6 +142,7 @@
                 <version>${serenity.maven.version}</version>
                 <configuration>
                     <tags>${tags}</tags>
+                    <outputDirectory>${project.build.directory}/serenity-report</outputDirectory>
                 </configuration>
                 <dependencies>
                     <dependency>
