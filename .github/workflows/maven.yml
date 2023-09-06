@@ -25,11 +25,12 @@ jobs:
         java-version: 1.8
     - name: Build with Maven
       run: mvn -B verify --file pom.xml
-    - name: Generate Serenity Report
-      run: mvn serenity:aggregate --file pom.xml
+    - name: |
+        mkdir -p serenity-report
+        mvn serenity:aggregate --file pom.xml -Dserenity.outputDirectory=serenity-report
         # Make sure to use the correct goal and file name if needed
     - name: Archive Serenity Report
       uses: actions/upload-artifact@v2
       with:
         name: serenity-report
-        path: target/site/serenity
+        path: serenity-report
