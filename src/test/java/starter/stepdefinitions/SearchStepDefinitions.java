@@ -36,7 +36,7 @@ public class SearchStepDefinitions {
         restAssuredThat(response -> response.statusCode(responseStatusCode));
     }
 
-    @Then("the response body contains {int}")
+    @Then("the response body contains {int} products")
     public void responseBodyContain(Integer numberOfProducts) {
 
         if(numberOfProducts != 0) {

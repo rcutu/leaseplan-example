@@ -7,7 +7,7 @@ Feature: Search for the product
   Scenario Outline: User calls the endpoint for all the available products and receives the expected response
     Given user makes a GET request for the product '<PRODUCT>'
     Then the response status code is 200
-    And the response body contains <NUMBER_OF_PRODUCTS>
+    And the response body contains <NUMBER_OF_PRODUCTS> products
 
     Examples:
       | PRODUCT | NUMBER_OF_PRODUCTS |
